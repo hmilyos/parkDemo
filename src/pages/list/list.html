@@ -23,26 +23,29 @@
     </ion-refresher-content>
   </ion-refresher>
 
-  <ion-card *ngFor="let p of parks;">
-    <ion-item>
+  <ion-card padding *ngFor="let p of parks;">
+    <ion-item class="pdl">
       <ion-avatar item-start>
-        <img src="">
+        <img src="../../assets/imgs/logo.png">
       </ion-avatar>
       <p>{{p?.parkingPlacesName}}
         <ion-icon class="more_button" name="more"></ion-icon>
       </p>
     </ion-item>
-    <h2>35353535</h2>
-    <ion-card-content>
-      <p>373737</p>
-    </ion-card-content>
     <ion-row>
-      <ion-col col-8 center text-left>
+      <ion-col col-6 center text-left>
+        <p>35353535</p>
+      </ion-col>
+      <ion-col col-6 center text-right>
+        <p>373737</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-12 center text-right>
         <ion-note>
           4242&nbsp;赞同&nbsp;&nbsp;·&nbsp;&nbsp;424242&nbsp;评论&nbsp;&nbsp;·&nbsp;&nbsp;关注问题
         </ion-note>
       </ion-col>
-      <ion-col col-4></ion-col>
     </ion-row>
   </ion-card>
 </ion-content>

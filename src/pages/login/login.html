@@ -8,10 +8,10 @@
 
 
 <ion-content padding>
-  <button ion-button full>请根据自己的角色进入不同页面</button>
-  <button ion-button full (click)="toPage('admin')">管理员</button>
-  <button ion-button full (click)="toPage('emp')">员工</button>
-  <button ion-button full (click)="toPage('vistor')">访客</button>
+  <button ion-button full class="button_mar">请根据自己的角色进入不同页面</button>
+  <button ion-button full class="button_mar" (click)="toPage('admin')">管理员</button>
+  <button ion-button full class="button_mar" (click)="toPage('emp')">员工</button>
+  <button ion-button full class="button_mar" (click)="toPage('vistor')">访客</button>
 
   <ion-fab right bottom>
     <button (click)="toAdd()" ion-fab mini><ion-icon name="add"></ion-icon></button>
