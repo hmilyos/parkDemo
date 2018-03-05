@@ -1,0 +1,15 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>首页</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <button ion-button full>请根据自己的角色进入不同页面</button>
+  <button ion-button full (click)="toPage('admin')">管理员</button>
+  <button ion-button full (click)="toPage('emp')">员工</button>
+  <button ion-button full (click)="toPage('vistor')">访客</button>
+</ion-content>
