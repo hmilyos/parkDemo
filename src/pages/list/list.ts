@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, LoadingController, ModalController, NavController, NavParams} from 'ionic-angular';
+import {IonicPage, LoadingController, ModalController, NavController, NavParams, ToastController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import {BaseUI} from "../../common/baseui";
 import {RestProvider} from "../../providers/rest/rest";
@@ -17,12 +17,16 @@ import {RestProvider} from "../../providers/rest/rest";
   templateUrl: 'list.html',
 })
 export class ListPage extends BaseUI{
+  searchUrl: string = '';
+  parkingPlacesName: string = '';
+  parks: ParkingPlacesModel[] = [];
 
   constructor(public navCtrl: NavController,
               public storage: Storage,
               public modalCtrl: ModalController,
               public loadCtrl: LoadingController,
               public restProvider: RestProvider,
+              public toastCtrl: ToastController,
               public navParams: NavParams) {
     super();
   }
@@ -30,23 +34,29 @@ export class ListPage extends BaseUI{
   ionViewDidLoad() {
   }
 
-  doRefresh(){
-
+  doRefresh(refresher){
+    this.getParks();
+    refresher.complete();
   }
-  searchUrl: string = '';
-  parkingPlacesName: string = '';
-  parks: ParkingPlacesModel[] = [];
+
 
   ionViewDidEnter() {
+   this.getParks();
+  }
+
+  getParks(){
     var loading = super.showLoading(this.loadCtrl, "加载中...");
-    setTimeout(() => loading.dismiss(), 3000);
     this.storage.get('role').then((role) => {
-      console.log(role);
       this.searchUrl = 'type=' + (role == 'vistor' ? 'v' : '') + '&parkingPlacesName=' + this.parkingPlacesName.trim();
       this.restProvider.getParks(this.searchUrl).subscribe(
         data => {
-          console.log(data);
-          this.parks = data;
+          if (data.state || 'undefined' == typeof (data.state)) {
+            this.parks = data;
+          }
+          else {
+            super.showToast(this.toastCtrl, data.msg);
+          }
+          loading.dismiss();
         }
       );
     });
