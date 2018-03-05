@@ -29,4 +29,7 @@ export class LoginPage {
     this.navCtrl.setRoot('ListPage', {role: role});
   }
 
+  toAdd(){
+    this.navCtrl.setRoot('ParkFormPage', {pid: 0});
+  }
 }
