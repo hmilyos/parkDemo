@@ -14,5 +14,50 @@
 
 
 <ion-content padding>
+  <ion-list>
+
+    <ion-item>
+      <ion-label>停车场编号</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>停车场位置</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>停车场总数</ion-label>
+      <ion-input type="number"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>停车场属性</ion-label>
+      <ion-note item-end="" class="note note-ios" style="margin: 0;padding: 0 5px;">
+        <div class="disil">
+          <ion-checkbox color="dark" checked class="disil checkbox"></ion-checkbox>
+          <ion-label class="disil">员工</ion-label>
+        </div>
+        <div class="disil">
+          <ion-checkbox color="dark" class="disil checkbox"></ion-checkbox>
+          <ion-label class="disil">非员工</ion-label>
+        </div>
+      </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>停车场车辆类型</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+
+  </ion-list>
+
+  <ion-list text-center>
+    <button ion-button col-4 color="danger" style="margin-right: 10px;">取消</button>
+    <button ion-button col-4 color="light">提交</button>
+  </ion-list>
+
+
 
 </ion-content>

@@ -24,29 +24,33 @@
   </ion-refresher>
 
   <ion-card padding *ngFor="let p of parks;">
-    <ion-item class="pdl">
-      <ion-avatar item-start>
-        <img src="../../assets/imgs/logo.png">
-      </ion-avatar>
-      <p>{{p?.parkingPlacesName}}
-        <ion-icon class="more_button" name="more"></ion-icon>
-      </p>
+    <ion-item col-8 class="pdl disil" style="float: left">
+      <ion-row>
+        <ion-col>
+          <p>{{p?.parkingPlacesName}}
+            <ion-icon class="more_button" name="more"></ion-icon>
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6 center text-left>
+          <p>总车位：200</p>
+        </ion-col>
+        <ion-col col-6 center text-right>
+          <p>剩余车位：120</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col>
+            <p>适用车辆：小车，大巴</p>
+          </ion-col>
+      </ion-row>
     </ion-item>
-    <ion-row>
-      <ion-col col-6 center text-left>
-        <p>35353535</p>
-      </ion-col>
-      <ion-col col-6 center text-right>
-        <p>373737</p>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col col-12 center text-right>
-        <ion-note>
-          4242&nbsp;赞同&nbsp;&nbsp;·&nbsp;&nbsp;424242&nbsp;评论&nbsp;&nbsp;·&nbsp;&nbsp;关注问题
-        </ion-note>
-      </ion-col>
-    </ion-row>
+    <ion-item col-4 class="pdl disil" text-center style="float: right">
+      <ion-row style="margin: 15px 10px;">
+        <button ion-button color="secondary">修改</button>
+      </ion-row>
+    </ion-item>
   </ion-card>
 
   <ion-fab right bottom>
