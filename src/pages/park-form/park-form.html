@@ -18,28 +18,28 @@
 
     <ion-item>
       <ion-label>停车场编号</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="model.parkingPlacesName" placeholder="必填" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>停车场位置</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="model.parkingPlacesAddress" placeholder="必填" type="text"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label>停车场总数</ion-label>
-      <ion-input type="number"></ion-input>
+      <ion-label>停车位总数</ion-label>
+      <ion-input [(ngModel)]="parkingTotal" placeholder="必填" type="number"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label>停车场属性</ion-label>
       <ion-note item-end="" class="note note-ios" style="margin: 0;padding: 0 5px;">
         <div class="disil">
-          <ion-checkbox color="dark" checked class="disil checkbox"></ion-checkbox>
+          <ion-checkbox color="dark" [(ngModel)]="employeeVisible"  class="disil checkbox"></ion-checkbox>
           <ion-label class="disil">员工</ion-label>
         </div>
         <div class="disil">
-          <ion-checkbox color="dark" class="disil checkbox"></ion-checkbox>
+          <ion-checkbox color="dark" [(ngModel)]="visitorsVisible" class="disil checkbox"></ion-checkbox>
           <ion-label class="disil">非员工</ion-label>
         </div>
       </ion-note>
@@ -47,15 +47,16 @@
 
     <ion-item>
       <ion-label>停车场车辆类型</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input [(ngModel)]="model.parkingType" placeholder="必填" type="text"></ion-input>
     </ion-item>
 
 
   </ion-list>
 
   <ion-list text-center>
-    <button ion-button col-4 color="danger" style="margin-right: 10px;">取消</button>
-    <button ion-button col-4 color="light">提交</button>
+    <button (click)="dismiss()" ion-button col-4 color="danger" style="margin-right: 10px;">返回</button>
+    <!--<button [disabled]="model?.parkingPlacesName == '' || model?.parkingPlacesAddress == '' || model?.parkingType == '' || !(visitorsVisible || employeeVisible)"-->
+    <button (click)="save()" ion-button col-4 color="light">提交</button>
   </ion-list>
 
 

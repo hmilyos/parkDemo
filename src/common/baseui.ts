@@ -36,14 +36,15 @@ export abstract class BaseUI {
      * @protected
      * @param {ToastController} toastCtrl
      * @param {string} message
+     * @param {number} middleId : 0: 提示在顶部  1：提示在中间   其他：提示在底部
      * @returns {Toast}
      * @memberof BaseUI
      */
-    protected showToast(toastCtrl: ToastController, message: string): Toast {
+    protected showToast(toastCtrl: ToastController, message: string, middleId: number): Toast {
         let toast = toastCtrl.create({
             message: message,
             duration: 3000, //默认展示的时长
-            position: 'bottom'
+            position: (middleId == 0 ? 'top' : (middleId == 1 ? 'middle' : 'bottom'))
         });
         toast.present();
         return toast;

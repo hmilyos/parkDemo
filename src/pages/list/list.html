@@ -34,21 +34,23 @@
       </ion-row>
       <ion-row>
         <ion-col col-6 center text-left>
-          <p>总车位：200</p>
+          <p>总车位：{{p?.parkingTotal}}</p>
         </ion-col>
         <ion-col col-6 center text-right>
-          <p>剩余车位：120</p>
+          <p>剩余车位：{{p?.parkingRemaining}}</p>
         </ion-col>
       </ion-row>
       <ion-row>
           <ion-col>
-            <p>适用车辆：小车，大巴，摩托车</p>
+            <p>适用车辆：{{p?.parkingType}}</p>
           </ion-col>
       </ion-row>
     </ion-item>
     <ion-item col-4 class="pdl disil" text-center style="float: right">
       <ion-row style="margin: 15px 10px;">
-        <button ion-button color="secondary">修改</button>
+        <button *ngIf="role == 'admin'" (click)="toDetail(p?.parkingPlacesId)" ion-button color="secondary">修改</button>
+        <button *ngIf="role == 'guard'" (click)="toShow(p)" ion-button color="secondary">更新</button>
+        <button *ngIf="role == 'emp' || role == 'vistor'" (click)="toShow(p)" ion-button color="secondary">去这里</button>
       </ion-row>
     </ion-item>
   </ion-card>
