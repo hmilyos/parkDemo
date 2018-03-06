@@ -24,6 +24,7 @@ export class RestProvider {
   private getUrlReturn(url: string): Observable<Object> {
     url += ((url.indexOf('?') == -1 ? '?' : '&') + 'td=' + new Date().getTime());
     //let parkUrlHeard = this.getParkUrlHeard() + url;
+    console.log(url);
     return this.http.get(encodeURI(this.getParkUrlHeard() + url)).catch(err => {
       return  Observable.throw(err ? err : {'errMsg': '出错啦！'} );
     });

@@ -20,6 +20,12 @@ export class ParkFormPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ParkFormPage');
+    console.log(this.navParams.get('pid'));
+  }
+
+  ionViewDidEnter() {
+    console.log('---ionViewDidEnter--');
+    console.log(this.navParams.get('pid'));
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
+import {ParkFormPage} from "../park-form/park-form";
 /**
  * Generated class for the LoginPage page.
  *
@@ -27,9 +28,5 @@ export class LoginPage {
   toPage(role: string){
     this.storage.set('role', role);
     this.navCtrl.setRoot('ListPage', {role: role});
-  }
-
-  toAdd(){
-    this.navCtrl.setRoot('ParkFormPage', {pid: 0});
   }
 }
