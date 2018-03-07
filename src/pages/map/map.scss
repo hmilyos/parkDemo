@@ -1,3 +1,189 @@
 page-map {
+  .indexContent{
+    /*margin-top: 3.2rem;*/
+    /*max-height: 700px;*/
+    overflow-y: scroll;
+  }
+
+  //.Mainmap{
+  //  width:100%;
+  //  /*height:20rem;*/
+  //  /*max-height:20rem;*/
+  //  height:expression(document.body.clientWidth>20rem?"20rem":"auto");
+  //  position: relative;
+  //}
+  //
+  .mapindex{
+    //position: relative;
+    height: 625px;
+  }
+
+
+  .clickmask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    background: url(../../assets/imgs/loadingssss.gif) no-repeat rgba(0, 0, 0, 0.5);
+    background-size: 30px 30px;
+    background-position: center center;
+    filter: alpha(opacity=50);
+  }
+
+  /************悬浮图标s**************/
+  .fixedicon{
+    width:1.7rem;
+    height:1.7rem;
+    background:url("../../assets/imgs/iconAll.png") no-repeat;
+    position: fixed;
+    bottom:5%;
+    right:5%;
+    z-index: 1000;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -webkit-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -moz-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -o-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+  }
+  .fixMap{
+    background-position: 0px 0px;
+  }
+  .fixReturn{
+    background-position: -400px 0px;
+  }
+  .fixAdd{
+    background-position: 0px -100px;
+  }
+
+  .GDicon{
+    width:1.7rem;
+    height:1.7rem;
+    background:url("../../assets/imgs/iconAll.png") no-repeat;
+    background-position: -100px 0px;
+    position: absolute;
+    bottom:2%;
+    right:5%;
+    z-index: 1000;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -webkit-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -moz-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -o-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+  }
+  .SecreturnIcon{
+    width:1.7rem;
+    height:1.7rem;
+    background:url("../../assets/imgs/iconAll.png") no-repeat;
+    background-position: -400px 0px;
+    position: absolute;
+    bottom:2%;
+    right:5%;
+    z-index: 1000;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -webkit-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -moz-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -o-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+  }
+  .RefreshIcon{
+    width:1.2rem;
+    height:1.2rem;
+    background:url("../../assets/imgs/iconAll.png") no-repeat;
+    background-position: -200px 0px;
+    position: absolute;
+    top:15%;
+    left:5%;
+    z-index: 1000;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -webkit-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -moz-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -o-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+  }
+  .TipsIcon{
+    width:1.2rem;
+    height:1.2rem;
+    background:url("../../assets/imgs/iconAll.png") no-repeat;
+    background-position: -300px 0px;
+    position: absolute;
+    top:5%;
+    left:5%;
+    z-index: 1000;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -webkit-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -moz-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+    -o-box-shadow: 0 4px 7px 0 rgba(74,144,226,0.50);
+  }
+  /***************************/
+  .TipsCont{
+    background: rgba(133,182,236,.8);
+    font-size: 0.6rem;
+    color:#fff;
+    width:70%;
+    height:1rem;
+    line-height: 1rem;
+    /*padding:0.25rem;*/
+    /*display: inline-block;*/
+    position: absolute;
+    top:6%;
+    left:9%;
+    z-index: 100;
+    text-align: center;
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: 0.5rem;
+    -o-border-radius: 0.5rem;
+
+  }
+
+  .indexConDetail{
+    height:5rem;
+    margin: 1rem 1.6rem;
+  }
+
+  .parktitle{
+    color:#39393a;
+    font-size:0.9rem;
+  }
+  .parkcom{
+    font-size: 0.6rem;
+    color:#898989;
+    margin-top: 0.5rem;
+  }
+
+  .carNum{
+    color:#393939;
+  }
+
+  .carNums{
+    color:#F2818F !important;
+  }
+
+  .parkInfo{
+    position: absolute;
+    bottom: 0;
+    background: #ffffff;
+    width: 100%;
+    margin: 0;
+    padding:5px 10px;
+  }
 
 }

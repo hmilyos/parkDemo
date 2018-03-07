@@ -24,35 +24,56 @@
   </ion-refresher>
 
   <ion-card padding *ngFor="let p of parks;">
-    <ion-item col-8 class="pdl disil" style="float: left">
-      <ion-row>
-        <ion-col>
-          <p>{{p?.parkingPlacesName}}
-            <ion-icon class="more_button" name="more"></ion-icon>
-          </p>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-        <ion-col col-6 center text-left>
-          <p>总车位：{{p?.parkingTotal}}</p>
-        </ion-col>
-        <ion-col col-6 center text-right>
-          <p>剩余车位：{{p?.parkingRemaining}}</p>
-        </ion-col>
-      </ion-row>
-      <ion-row>
+    <div class="overflow">
+      <ion-item col-8 class="pdl disil" style="float: left">
+        <ion-row>
+          <ion-col>
+            <p>{{p?.parkingPlacesName}}
+              <ion-icon class="more_button" name="more"></ion-icon>
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col center text-left>
+            <p class="disil" style="margin-right: 0.75rem;">总车位：{{p?.parkingTotal}}</p>
+            <p class="disil">剩余车位：{{p?.parkingRemaining}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
           <ion-col>
             <p>适用车辆：{{p?.parkingType}}</p>
           </ion-col>
-      </ion-row>
-    </ion-item>
-    <ion-item col-4 class="pdl disil" text-center style="float: right">
-      <ion-row style="margin: 15px 10px;">
-        <button *ngIf="role == 'admin'" (click)="toDetail(p?.parkingPlacesId)" ion-button color="secondary">修改</button>
-        <button *ngIf="role == 'guard'" (click)="toShow(p)" ion-button color="secondary">更新</button>
-        <button *ngIf="role == 'emp' || role == 'vistor'" (click)="toShow(p)" ion-button color="secondary">去这里</button>
-      </ion-row>
-    </ion-item>
+        </ion-row>
+      </ion-item>
+      <ion-item col-4 class="pdl disil" text-center style="float: right">
+        <ion-row style="margin: 15px 10px;">
+          <button *ngIf="role == 'admin'" (click)="toDetail(p?.parkingPlacesId)" ion-button block color="default">修改</button>
+          <button *ngIf="role == 'guard'" (click)="toShow(p)" ion-button block color="default">更新</button>
+          <button *ngIf="role == 'emp' || role == 'vistor'" (click)="toShow(p)" ion-button block color="default">去这里</button>
+        </ion-row>
+      </ion-item>
+    </div>
+
+    <div class="slideContent" *ngIf="role == 'emp' || role == 'vistor'">
+      <img src="../../assets/imgs/p1.png" alt="">
+      <div class="slideTop tc" (click)="cancel()">
+        <b class="slideTopBtn"></b>
+      </div>
+    </div>
+
+    <div *ngIf="role == 'guard'" class="updateContent">
+      <div class="inputNumber">
+        <span class="ipIncre disil lf tc" (click)="increase()"><b class="increBtn"></b></span>
+        <input type="number" (keyup)="numValidator($event)" class="inputSR disil lf"  [(ngModel)]="carnumber"  name="amount"  >
+        <span class="ipAdd disil lf tc" (click)="add()"><b class="addBtn"></b></span>
+      </div>
+      <div class="inputBtn tc">
+        <div class="disil lf tc cancelBtn" (click)="cancel()">取消</div>
+        <div class="disil rg tc sureBtn" (click)="update()">确定</div>
+
+      </div>
+    </div>
+
   </ion-card>
 
   <ion-fab right bottom>

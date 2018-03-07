@@ -1,9 +1,130 @@
 page-list {
-  .disil{
-    display: inline-block;
-  }
   .pdl{
     padding-left: 0;
+  }
+
+  .updateContent{
+    min-height: 8rem;
+    padding:0.75rem 0;
+    border-top:1px solid #e8e8e8;
+    margin: 0 1.25rem;
+  }
+
+  .inputNumber{
+    width:90%;
+    margin: 1rem auto;
+    overflow: hidden;
+  }
+  .inputSR{
+    width:50%;
+    height: 4rem;
+    line-height: 4rem;
+    margin: 0 auto;
+    text-align: center;
+    font-family: Arial;
+    color:#4187f1;
+    font-size: 2rem;
+    border-radius: 0.25rem;
+    -webkit-border-radius:0.25rem;
+    -moz-border-radius: 0.25rem;
+    border:1px solid #d6d6d6;
+    position: relative;
+    top:0.45rem;
+  }
+
+  .ipAdd,.ipIncre{
+    margin: 0.25rem 0;
+    /*width:1.8rem;s*/
+    width: 23%;
+    height:3.2em;
+    display: inline-block;
+    text-align: center;
+  }
+
+  .increBtn{
+    width:3.2rem;
+    height:3.2rem;
+    background:url("../../assets/imgs/iconAll.png") no-repeat;
+    background-position: -500px 0px;
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    top:0.5rem;
+  }
+  .addBtn{
+    width:3.2rem;
+    height:3.2rem;
+    background:url("../../assets/imgs/iconAll.png") no-repeat;
+    background-position: -600px 0px;
+    display: inline-block;
+    margin: 0 auto;
+    position: relative;
+    top:0.5rem;
+  }
+  .inputBtn{
+    overflow: hidden;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  /*.cancelBtn{*/
+  /*width:50%;*/
+  /*height:2rem;*/
+  /*line-height: 2rem;*/
+  /*color:#89898a;*/
+  /*font-size: 0.9rem;*/
+  /*}*/
+  .sureBtn,.cancelBtn{
+    width:50%;
+    height:4rem;
+    line-height: 4rem;
+    color:#4187f1;
+    font-size: 1.8rem;
+  }
+  .cancelIcon{
+    width:0.75rem;
+    height:0.75rem;
+    background:url("../../assets/imgs/iconAll.png") no-repeat;
+    background-position: -200px -100px;
+    display: inline-block;
+    margin-right: 0.25rem;
+    position: relative;
+    top:0.1rem;
+  }
+  .sureIcon{
+    width:1.05rem;
+    height:0.75rem;
+    background:url("../../assets/imgs/iconAll.png") no-repeat;
+    background-position: -100px -100px;
+    display: inline-block;
+    margin-right: 0.25rem;
+    position: relative;
+    top:0.2rem;
+  }
+
+  .slideContent{
+    min-height:14rem;
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+  .slideContent img{
+    width:100%;
+    height:293px;
+    border-radius: 0.25rem;
+  }
+  .slideTop{
+    height:2.5rem;
+    line-height: 2.5rem;
+    margin-top: 1rem;
+  }
+  .slideTopBtn{
+    width:4rem;
+    height:1.5rem;
+    background:url("../../assets/imgs/iconAll.png") no-repeat;
+    background-position: -700px 0px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top:0.5rem;
   }
 
 }

@@ -13,6 +13,37 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
+  <div class="content" style="background:#fff;">
+    <div class="clickmask" [class.disn]="isMask"></div>
+    <div id="indexContent" class="indexContent">
+      <div id="Mainmap" class="Mainmap">
+        <!-----------非保安--------->
+        <span *ngIf="type != 'g'" (click)="toPage('list')" class="GDicon"></span>
+        <!-----------保安--------->
+        <span *ngIf="type == 'g'" (click)="toretu('list')" class="SecreturnIcon"></span>
+
+        <span (click)="getData()" class="RefreshIcon"></span>
+
+        <span *ngIf="type == 'v'" class="TipsIcon" (click)="toTips()"></span>
+        <b class="TipsCont" [class.disn]="!isShow">点击建筑物上的锚点,可推荐停车场</b>
+        <div id="mapindex" class="mapindex">
+          <div id="container"></div>
+        </div>
+      </div>
+
+      <div class="indexConDetail">
+        <p>
+          <span style="font-size:1.2rem;" class="parktitle">{{selectPark?.parkingPlacesName}}</span>
+        </p>
+        <p class="parkcom">
+          <span>车位：{{selectPark?.parkingTotal}}</span>
+          <span *ngIf="selectPark?.parkingRemaining > 0" style="margin-left:2rem;" class="parkcom">剩余数量：<b class="bold carNum">{{selectPark?.parkingRemaining}}</b></span>
+          <span *ngIf="selectPark?.parkingRemaining < 1" style="margin-left:2rem;" class="parkcom"><b class="bold carNums">车位已满</b></span>
+        </p><!--车位为 0 时 ，加 carNums 这个类变为红色-->
+        <p class="parkcom">使用车辆：{{selectPark?.parkingType}}</p>
+      </div>
+    </div>
+  </div>
 
 </ion-content>

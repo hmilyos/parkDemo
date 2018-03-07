@@ -1,0 +1,22 @@
+.disil{
+  display: inline-block;
+}
+.dsb{
+  display: block;
+}
+.disn{
+  display: none;
+}
+.overflow{
+  overflow: hidden;
+}
+.tc{
+  text-align: center
+}
+.lf{
+  float: left;
+}
+.rg{
+  float: right;
+}
+
