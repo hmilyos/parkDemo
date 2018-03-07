@@ -40,7 +40,7 @@
           <span>车位：{{selectPark?.parkingTotal}}</span>
           <span *ngIf="selectPark?.parkingRemaining > 0" style="margin-left:2rem;" class="parkcom">剩余数量：<b class="bold carNum">{{selectPark?.parkingRemaining}}</b></span>
           <span *ngIf="selectPark?.parkingRemaining < 1" style="margin-left:2rem;" class="parkcom"><b class="bold carNums">车位已满</b></span>
-        </p><!--车位为 0 时 ，加 carNums 这个类变为红色-->
+        </p><!--车位为 0 时 ，加 carNums 这个类变为红色s-->
         <p class="parkcom">使用车辆：{{selectPark?.parkingType}}</p>
       </div>
     </div>
