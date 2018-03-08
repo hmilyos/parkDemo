@@ -54,14 +54,14 @@
       </ion-item>
     </div>
 
-    <div class="slideContent" *ngIf="role == 'emp' || role == 'vistor'">
-      <img src="../../assets/imgs/p1.png" alt="">
+    <div class="slideContent" *ngIf="currentId == p?.parkingPlacesId && (role == 'emp' || role == 'vistor')">
+      <img src="../../assets/imgs/{{p?.navigationMap}}" alt="">
       <div class="slideTop tc" (click)="cancel()">
         <b class="slideTopBtn"></b>
       </div>
     </div>
 
-    <div *ngIf="role == 'guard'" class="updateContent">
+    <div *ngIf="currentId == p?.parkingPlacesId && role == 'guard'" class="updateContent">
       <div class="inputNumber">
         <span class="ipIncre disil lf tc" (click)="increase()"><b class="increBtn"></b></span>
         <input type="number" (keyup)="numValidator($event)" class="inputSR disil lf"  [(ngModel)]="carnumber"  name="amount"  >
@@ -76,7 +76,10 @@
 
   </ion-card>
 
-  <ion-fab right bottom>
-    <button (click)="toDetail(0)" ion-fab mini><ion-icon name="add"></ion-icon></button>
+  <ion-fab right bottom *ngIf="role == 'admin'">
+    <button  (click)="toDetail(0)" ion-fab mini *ngIf="role == 'admin'"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+  <ion-fab right bottom *ngIf="role != 'admin'">
+    <button  (click)="toMap()" ion-fab mini><ion-icon  name="arrow-back"></ion-icon></button>
   </ion-fab>
 </ion-content>

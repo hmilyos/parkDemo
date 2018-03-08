@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {IonicPage, LoadingController, ModalController, NavController, NavParams, ToastController} from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams, ToastController} from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 import {BaseUI} from "../../common/baseui";
 import {RestProvider} from "../../providers/rest/rest";
@@ -27,7 +27,6 @@ export class ListPage extends BaseUI{
 
   constructor(public navCtrl: NavController,
               public storage: Storage,
-              public modalCtrl: ModalController,
               public loadCtrl: LoadingController,
               public restProvider: RestProvider,
               public toastCtrl: ToastController,
@@ -140,6 +139,13 @@ export class ListPage extends BaseUI{
     this.carnumber = this.selectPark.parkingRemaining;
   }
 
+  cancel(){
+    this.currentId = '';
+  }
+
+  toMap(){
+    this.navCtrl.push('MapPage', {role: this.role});
+  }
 }
 
 

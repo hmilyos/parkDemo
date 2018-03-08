@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {IonicPage, LoadingController, NavController, NavParams, ToastController} from 'ionic-angular';
+import {RestProvider} from "../../providers/rest/rest";
+import { Storage } from '@ionic/storage';
+import {BaseUI} from "../../common/baseui";
+import {ParkingPlacesModel} from "../../common/models";
+
 declare var AMap: any;
 declare var parks: any;
 declare var buildings: any;
@@ -16,16 +21,59 @@ declare var buildings: any;
   selector: 'page-map',
   templateUrl: 'map.html',
 })
-export class MapPage {
+export class MapPage extends BaseUI {
   isMask: boolean = true;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  role: string = 'vistor';
+  parks: ParkingPlacesModel[] = [];
+
+  constructor(public navCtrl: NavController,
+              public storage: Storage,
+              public loadCtrl: LoadingController,
+              public restProvider: RestProvider,
+              public toastCtrl: ToastController,
+              public navParams: NavParams) {
+    super();
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad MapPage');
+    //console.log('ionViewDidLoad MapPage');
     this.mapInit();
   }
 
+  ionViewDidEnter() {
+    this.getRole();
+  }
+
+  getRole() {
+    this.role = this.navParams.get('role');
+    if ('undefined' == typeof(this.role)) {
+      this.storage.get('role').then((role) => {
+        this.role = role;
+        this.getParks();
+      });
+    }
+    else {
+      this.getParks();
+    }
+  }
+
+
+  getParks(){
+    let loading = super.showLoading(this.loadCtrl, "加载中...");
+    let key = 'type=' + (this.role == 'vistor' ? 'v' : '') + '&parkingPlacesName=';
+    this.restProvider.getParks(key).subscribe(
+      data => {
+        loading.dismiss();
+        if (data.state || 'undefined' == typeof (data.state)) {
+          this.parks = data;
+          console.log(this.parks);
+        }
+        else {
+          super.showToast(this.toastCtrl, data.msg, 2);
+        }
+      }
+    );
+  }
   mapInit(){
     //初始化加载地图
     let map = new AMap.Map('container', {
