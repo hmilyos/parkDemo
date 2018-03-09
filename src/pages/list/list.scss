@@ -35,7 +35,7 @@ page-list {
   .ipAdd,.ipIncre{
     margin: 0.25rem 0;
     /*width:1.8rem;s*/
-    width: 23%;
+    width: 25%;
     height:3.2em;
     display: inline-block;
     text-align: center;
@@ -125,6 +125,16 @@ page-list {
     margin: 0 auto;
     position: relative;
     top:0.5rem;
+  }
+  .topTT{
+    width:0.7rem;
+    height:0.7rem;
+    background:url("../../assets/imgs/iconAll.png") no-repeat;
+    background-position: -800px 0px;
+    display: inline-block;
+    margin-right: 0.25rem;
+    position: relative;
+    top:2px;
   }
 
 }

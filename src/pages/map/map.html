@@ -19,13 +19,13 @@
     <div id="indexContent" class="indexContent">
       <div id="Mainmap" class="Mainmap">
         <!-----------非保安--------->
-        <span *ngIf="type != 'g'" (click)="toPage('list')" class="GDicon"></span>
+        <span *ngIf="role != 'guard'" (click)="toPage('list')" class="GDicon"></span>
         <!-----------保安--------->
-        <span *ngIf="type == 'g'" (click)="toretu('list')" class="SecreturnIcon"></span>
+        <span *ngIf="role == 'guard'"  (click)="toretu('list')" class="SecreturnIcon"></span>
 
         <span (click)="getData()" class="RefreshIcon"></span>
 
-        <span *ngIf="type == 'v'" class="TipsIcon" (click)="toTips()"></span>
+        <span *ngIf="role == 'vistor'" class="TipsIcon" (click)="toTips()"></span>
         <b class="TipsCont" [class.disn]="!isShow">点击建筑物上的锚点,可推荐停车场</b>
         <div id="mapindex" class="mapindex">
           <div id="container"></div>

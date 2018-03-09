@@ -22,6 +22,7 @@ declare var buildings: any;
   templateUrl: 'map.html',
 })
 export class MapPage extends BaseUI {
+  isShow: boolean = false;
   isMask: boolean = true;
   role: string = 'vistor';
   parks: ParkingPlacesModel[] = [];

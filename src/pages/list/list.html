@@ -76,10 +76,24 @@
 
   </ion-card>
 
-  <ion-fab right bottom *ngIf="role == 'admin'">
-    <button  (click)="toDetail(0)" ion-fab mini *ngIf="role == 'admin'"><ion-icon name="add"></ion-icon></button>
-  </ion-fab>
-  <ion-fab right bottom *ngIf="role != 'admin'">
-    <button  (click)="toMap()" ion-fab mini><ion-icon  name="arrow-back"></ion-icon></button>
-  </ion-fab>
+  <!--<ion-fab right bottom *ngIf="role == 'admin'">-->
+    <!--<button  (click)="toDetail(0)" ion-fab mini *ngIf="role == 'admin'"><ion-icon name="add"></ion-icon></button>-->
+  <!--</ion-fab>-->
+  <!--<ion-fab right bottom *ngIf="role == 'guard'">-->
+    <!--<button  (click)="toMap()" ion-fab mini><ion-icon  name="pin"></ion-icon></button>-->
+  <!--</ion-fab>-->
+  <!--<ion-fab right bottom *ngIf="role == 'emp' || role == 'vistor'">-->
+    <!--<button  (click)="toMap()" ion-fab mini><ion-icon  name="arrow-back"></ion-icon></button>-->
+  <!--</ion-fab>-->
+
+  <!--------悬浮图标 返回、地图定位图标 新增---------->
+  <!---------新增----管理员--->
+  <span *ngIf="role == 'admin'" (click)="toDetail(0)" class="fixedicon fixAdd"></span>
+  <!---------返回---访客--员工-->
+  <span *ngIf="role == 'vistor'" (click)="toMap()"  class="fixedicon fixReturn"></span>
+  <span *ngIf="role == 'emp'" (click)="toMap()"  class="fixedicon fixReturn"></span>
+  <!---------定位---保安---->
+  <span *ngIf="role == 'guard'" (click)="toMap()" class="fixedicon fixMap"></span>
+
+
 </ion-content>
